@@ -6,6 +6,7 @@ import App from "./App";
 import "./mock";
 
 const rootElement = document.getElementById("root");
+
 ReactDOM.render(
   <Provider store={store}>
     <StrictMode>

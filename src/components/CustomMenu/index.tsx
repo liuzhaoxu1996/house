@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, MenuTheme } from 'antd';
+import { Menu, MenuTheme } from 'antd';
 import PrivateRoute from "../../routes/PrivateRoute";
-// import { Redirect, Switch } from "react-router-dom";
-
-// import PrivateRoute from "../../routes/PrivateRoute";
-// import Footer from "../Footer";
-// import Header from "../Header";
-// import Sidebar from "../Sidebar";
-const { Header, Content, Footer, Sider } = Layout;
-
 type TProps = {
   location: {
     pathname: string,
@@ -19,7 +11,7 @@ type TProps = {
 
 
 
-const Container = (props: TProps) => {
+const CustomMenu = (props: TProps) => {
   const [openKeys, setOpenKeys] = useState<any[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<any[]>([]);
 
@@ -88,45 +80,20 @@ const Container = (props: TProps) => {
   }
 
   return (
-    <>
-      <Layout>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={broken => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
-          <div className="logo" />
-          <Menu
-            onOpenChange={onOpenChange}
-            onClick={({ key }) => setSelectedKeys([key])}
-            openKeys={openKeys}
-            selectedKeys={selectedKeys}
-            theme={props.theme ? props.theme : 'dark'}
-            mode='inline'>
-            {
-              props.menus && props.menus.map(item => {
-                return item.subs && item.subs.length > 0 ? renderSubMenu(item) : renderMenuItem(item)
-              })
-            }
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              content
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-        </Layout>
-      </Layout>
-    </>
+    <Menu
+      onOpenChange={onOpenChange}
+      onClick={({ key }) => setSelectedKeys([key])}
+      openKeys={openKeys}
+      selectedKeys={selectedKeys}
+      theme={props.theme ? props.theme : 'dark'}
+      mode='inline'>
+      {
+        props.menus && props.menus.map(item => {
+          return item.subs && item.subs.length > 0 ? renderSubMenu(item) : renderMenuItem(item)
+        })
+      }
+    </Menu>
   );
 };
 
-export default Container;
+export default CustomMenu;
