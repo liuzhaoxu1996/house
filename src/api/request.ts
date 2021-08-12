@@ -26,12 +26,7 @@ server.interceptors.request.use(
 
 server.interceptors.response.use(
   (response: AxiosResponse<any>) => {
-    const data = response.data;
-    if (data.code === 0 || data.code === "0") {
-      return response;
-    } else {
-      return Promise.reject(data.msg);
-    }
+    return response;
   },
   (error: AxiosError<any>) => {
     return Promise.reject(error);

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Layout } from 'antd'
 import SiderNav from '../../components/SiderNav'
 import HeaderBar from '../../components/HeaderBar'
-import styles from './index.module.scss';
+import WangqianChart from './Charts/WangqianChart'
+import styles from './Index.module.scss';
 const { Sider, Content, Header, Footer } = Layout
 
 
@@ -40,7 +41,9 @@ const Index = () => {
             margin: '24px 16px 0',
             height: '100%'
           }}>
-            <div className={styles.content}></div>
+            <div className={styles.content}>
+              <WangqianChart />
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             React-Admin ©2020 Created by 1097959570@qq.com&nbsp;<a href='https://github.com/liuzhaoxu1996/' target='_blank' rel="noreferrer">github地址</a>
