@@ -89,8 +89,8 @@ const CustomMenu = (props: TProps) => {
       onClick={({ key }) => setSelectedKeys([key])}
       openKeys={openKeys}
       selectedKeys={selectedKeys}
-      theme={'dark'}
       mode='inline'
+      theme="dark"
     >
       {
         props.menus && props.menus.map(item => {

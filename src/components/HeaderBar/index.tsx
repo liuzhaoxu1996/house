@@ -49,16 +49,6 @@ const HeaderBar = (props: TProps) => {
   return (
     <div id='headerbar'>
       <div style={{ lineHeight: '64px', float: 'right' }}>
-        <ul className='header-ul'>
-          <li></li>
-          <li onClick={() => setCount(0)}>
-            <Badge count={appStore.isLogin ? count : 0} overflowCount={99} style={{ marginRight: -17 }}>
-            </Badge>
-          </li>
-          <li>
-            {appStore.isLogin ? login : notLogin}
-          </li>
-        </ul>
       </div>
       <Modal
         footer={null} closable={false}

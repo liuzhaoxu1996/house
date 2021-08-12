@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomMenu from "../CustomMenu";
-import './index.module.scss';
+import styles from './index.module.scss';
 
 const menus = [
   {
@@ -90,8 +90,8 @@ const menus = [
 
 const SiderNav = () => {
   return (
-    <div style={{ height: '100vh', overflowY: 'scroll' }}>
-      <div></div>
+    <div style={{ height: '100vh' }}>
+      <div className={styles.logo}></div>
       <CustomMenu menus={menus} />
     </div>
   )
