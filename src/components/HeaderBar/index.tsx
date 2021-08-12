@@ -2,24 +2,33 @@ import React, { useState } from 'react'
 import { Badge, Dropdown, Menu, Modal } from 'antd'
 import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../../utils/session'
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+} from '@ant-design/icons';
+import styles from './index.module.scss';
 
 type TProps = {
   appStore: any;
   history?: any;
   location: any;
   collapsed?: any;
+  onToggle?: () => void;
 }
 
 const HeaderBar = (props: TProps) => {
   const [count, setCount] = useState(100);
   const [visible, setVisible] = useState(false);
-
+  const { } = props;
   const logout = () => {
     props.appStore.toggleLogin(false)
     props.history.push(props.location.pathname)
   }
 
-  const { appStore, location } = props
+  const { appStore, location, collapsed, onToggle } = props
 
   const notLogin = (
     <div>
@@ -49,7 +58,12 @@ const HeaderBar = (props: TProps) => {
   return (
     <div id='headerbar'>
       <div style={{ lineHeight: '64px', float: 'right' }}>
+
       </div>
+      {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+        className: styles['menu-fold'],
+        onClick: onToggle,
+      })}
       <Modal
         footer={null} closable={false}
         visible={visible}

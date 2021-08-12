@@ -7,8 +7,11 @@ const { Sider, Content, Header, Footer } = Layout
 
 
 const Index = () => {
-  const [collapsed, setsetCollapsed] = useState(false);
-
+  const [collapsed, setCollapsed] = useState(false);
+  const toggle = () => {
+    // console.log(this)  状态提升后，到底是谁调用的它
+    setCollapsed(!collapsed)
+  }
   // 设置Sider的minHeight可以使左右自适应对齐
   return (
     <div style={{
@@ -29,9 +32,9 @@ const Index = () => {
         >
           <SiderNav />
         </Sider>
-        <Layout style={{ marginLeft: 200, height: '100%' }}>
+        <Layout style={{ marginLeft: collapsed ? '80px' : '200px', height: '100%' }}>
           <Header style={{ background: '#fff', padding: '0 16px' }}>
-            <HeaderBar collapsed={collapsed} appStore={{}} location={{}} />
+            <HeaderBar collapsed={collapsed} appStore={{}} location={{}} onToggle={toggle} />
           </Header>
           <Content style={{
             margin: '24px 16px 0',
