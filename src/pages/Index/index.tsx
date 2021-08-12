@@ -21,10 +21,10 @@ const Index = () => {
           trigger={null}
           collapsed={collapsed}
           style={{
-            overflow: 'auto',
-            height: '100vh',
             position: 'fixed',
             left: 0,
+            height: '100vh',
+            overflow: 'auto',
           }}
         >
           <SiderNav />
@@ -40,7 +40,7 @@ const Index = () => {
             <div className={styles.content}></div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            React-Admin ©2020 Created by 1097959570@qq.com<a href='https://github.com/liuzhaoxu1996/' target='_blank' rel="noreferrer">&nbsp;github地址</a>
+            React-Admin ©2020 Created by 1097959570@qq.com&nbsp;<a href='https://github.com/liuzhaoxu1996/' target='_blank' rel="noreferrer">github地址</a>
           </Footer>
         </Layout>
       </Layout>
