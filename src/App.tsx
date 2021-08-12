@@ -7,14 +7,14 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/Login";
-import Container from "./components/Container";
+import Index from "./pages/Index";
 import { isAuthenticated } from "./utils/session";
 import "./App.css";
 
 const App = (props: any) => {
   return (
     <Suspense fallback={<div>loading...</div>}>
-      <Router basename="example">
+      <Router>
         <Switch>
           <Route
             path="/login"
@@ -27,7 +27,7 @@ const App = (props: any) => {
               );
             }}
           />
-          <PrivateRoute path="/" component={Container} />
+          <PrivateRoute path="/" component={Index} />
         </Switch>
       </Router>
     </Suspense>
