@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Layout } from 'antd'
+import { Layout, Card, Col, Row } from 'antd'
 import SiderNav from '../../components/SiderNav'
 import HeaderBar from '../../components/HeaderBar'
-import WangqianChart from './Charts/WangqianChart'
+import WangqianChart from './WangqianChart'
+import HuanbiChart from './HuanbiChart/index'
+import TongbiChart from './TongbiChart/index'
+import ZaishowChart from './ZaishouChart/index'
 import styles from './Index.module.scss';
+
 const { Sider, Content, Header, Footer } = Layout
 
 
@@ -16,10 +20,10 @@ const Index = () => {
   // 设置Sider的minHeight可以使左右自适应对齐
   return (
     <div style={{
-      height: '100%'
+      minHeight: '100%'
     }}>
       <Layout style={{
-        height: '100%'
+        minHeight: '100%'
       }}>
         <Sider collapsible
           trigger={null}
@@ -39,10 +43,39 @@ const Index = () => {
           </Header>
           <Content style={{
             margin: '24px 16px 0',
-            height: '100%'
+            minHeight: '100%'
           }}>
             <div className={styles.content}>
-              <WangqianChart />
+              <Row gutter={[16, 16]}>
+                <Col span={12}>
+                  <Card title="近年来网签住宅数量" bordered={false}>
+                    <div className={styles.chart}>
+                      <WangqianChart />
+                    </div>
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card title="链家在售房源数趋势图" bordered={false}>
+                    <div className={styles.chart}>
+                      <ZaishowChart />
+                    </div>
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card title="住宅销售价格环比(上月)指数" bordered={false}>
+                    <div className={styles.chart}>
+                      <HuanbiChart />
+                    </div>
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card title="住宅销售价格同比(上年同月)指数" bordered={false}>
+                    <div className={styles.chart}>
+                      <TongbiChart />
+                    </div>
+                  </Card>
+                </Col>
+              </Row>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

@@ -1,2 +1,14 @@
 @import '~antd/dist/antd.css';
 
+.g-flex {
+  display: flex;
+}
+
+.g-flex-item {
+  flex: 1;
+}
+
+#root {
+  height: 100%;
+  overflow: auto;
+}
