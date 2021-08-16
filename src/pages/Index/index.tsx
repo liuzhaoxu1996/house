@@ -6,7 +6,7 @@ import WangqianChart from './WangqianChart'
 import HuanbiChart from './HuanbiChart/index'
 import TongbiChart from './TongbiChart/index'
 import ZaishowChart from './ZaishouChart/index'
-import styles from './Index.module.scss';
+import styles from './index.module.scss';
 
 const { Sider, Content, Header, Footer } = Layout
 

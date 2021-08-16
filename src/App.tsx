@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/Login";
-import Index from "./pages/Index/Index";
+import Index from "./pages/Index";
 import { isAuthenticated } from "./utils/session";
 import "./App.css";
 
